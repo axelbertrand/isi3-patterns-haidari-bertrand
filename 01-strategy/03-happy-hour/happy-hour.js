@@ -17,15 +17,24 @@ class HappyHourStrategy {
 }
 
 class TenPercent extends HappyHourStrategy {
-  // à compléter
+  constructor() {
+    super();
+    this.discount = 0.9
+  }
 }
 
 class TwentyFivePercent extends HappyHourStrategy {
-  // à compléter
+  constructor() {
+    super();
+    this.discount = 0.75
+  }
 }
 
 class NoDiscount extends HappyHourStrategy {
-  // à compléter
+  constructor() {
+    super();
+    this.discount = 1
+  }
 }
 
 class PubWaiter {
@@ -35,12 +44,12 @@ class PubWaiter {
   }
 
   useStrategy(strategy) {
-    // à compléter
+    this.strategy = strategy
     return this
   }
 
   calculatePrice(beer) {
-    // à compléter
+    return this.strategy.calculateNewPrice(beer)
   }
 }
 

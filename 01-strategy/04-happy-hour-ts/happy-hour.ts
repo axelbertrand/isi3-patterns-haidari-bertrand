@@ -14,15 +14,24 @@ interface HappyHourStrategy {
 }
 
 class TenPercent implements HappyHourStrategy {
-  // à compléter
+  discount: number = 0.9
+  calculateNewPrice(beer: Beer): number {
+    return beer.price * this.discount
+  }
 }
 
 class TwentyFivePercent implements HappyHourStrategy {
-  // à compléter
+  discount: number = 0.75
+  calculateNewPrice(beer: Beer): number {
+    return beer.price * this.discount
+  }
 }
 
 class NoDiscount implements HappyHourStrategy {
-  // à compléter
+  discount: number = 1
+  calculateNewPrice(beer: Beer): number {
+    return beer.price * this.discount
+  }
 }
 
 class PubWaiter {
@@ -34,12 +43,12 @@ class PubWaiter {
   }
 
   useStrategy(strategy: HappyHourStrategy) {
-    // à compléter
+    this.strategy = strategy
     return this
   }
 
   calculatePrice(beer: Beer) {
-    // à compléter
+    return this.strategy.calculateNewPrice(beer)
   }
 }
 
