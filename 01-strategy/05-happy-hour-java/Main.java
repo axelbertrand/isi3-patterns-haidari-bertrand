@@ -29,23 +29,45 @@ class Beer {
 }
 
 interface HappyHourStrategy {
-  // à compléter
+  Double calculateNewPrice(Beer beer);
 }
 
 class NoDiscount implements HappyHourStrategy {
-  // à compléter
+  public Double calculateNewPrice (Beer beer) {
+    return beer.getPrice();
+  }
 }
 
 class TenPercent implements HappyHourStrategy {
-  // à compléter
+  public Double calculateNewPrice (Beer beer) {
+    return beer.getPrice()* 0.9;
+  }
 }
 
 class TwentyFivePercent implements HappyHourStrategy {
-  // à compléter
+  public Double calculateNewPrice (Beer beer) {
+    return beer.getPrice()* 0.75;
+  }
 }
 
 class PubWaiter {
-// à compléter
+  private HappyHourStrategy strategy;
+  private String name;
+
+  public PubWaiter (String name) {
+    this.name = name;
+  }
+
+  public PubWaiter setStrategy(HappyHourStrategy strategy) {
+    this.strategy = strategy;
+    return this;
+  }
+
+  public Double calculatePrice(Beer beer) {
+    return this.strategy.calculateNewPrice(beer);
+  }
+
+
 }
 
 
@@ -79,19 +101,19 @@ public class Main {
       System.out.println("paleAlePrice ok");
     } else {
       System.out.println("paleAlePrice ko");
-    };
+    }
 
     if(chouffePrice.equals(2.7)) {
       System.out.println("chouffePrice ok");
     } else {
       System.out.println("chouffePrice ko");
-    };
+    }
 
     if(ipaPrice.equals(3.75)) {
       System.out.println("ipaPrice ok");
     } else {
       System.out.println("ipaPrice ko");
-    };
+    }
 
   }
 }
