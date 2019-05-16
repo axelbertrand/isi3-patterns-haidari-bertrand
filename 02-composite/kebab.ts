@@ -24,7 +24,7 @@ class Leaf implements Component {
 
 class Composite implements Component {
     name: string
-    children: Array<Component>
+    children: Component[]
 
     constructor(name: string) {
         this.name = name
